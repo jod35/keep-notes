@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+    
+<div class="container">
+    <div class="notes">
+        
+        {% for note in notes %}
+            <div class="note">
+                <h3 class="">{{note.title}}</h3>
+                <p class="">{{note.note}}</p>
+                <hr class="my-2">
+                <p class="">
+                    <a class="btn btn-info" href="/update/{{note.id}}" role="button">Edit</a>
+                    <a class="btn btn-danger" href="/delete/{{note.id}}" role="button">Delete</a>
+                    <a class="btn btn-success" href="" role="button">Archive</a>
+                </p>
+            </div>
+        {% endfor %}
+            
+    </div>
+</div>
+
+
+{% endblock body %}
+    

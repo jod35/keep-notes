@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <title>Hello</title>
+</head>
+<body>
+    <header>
+        <h3 class="text-warning">Keep Notes</h3>
+        <div class="message">
+            {% if messages %}
+            
+            {% for message in messages %}
+                 <p class="alert alert-{{message.tags}}">
+                     {{message}}
+                 </p>
+            {% endfor %}
+                
+        {% endif %}
+        </div>
+        <a href="#" class="add-btn text-info ">&plus; Add A Note</a>
+    </header>
+
+
+    <div class="note-modal" id="note-modal">
+        <div class="form">
+            <h3 class="text-primary">Add A Note</h3>
+            <form action="{% url 'notes:home' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea name="note" id="note" cols="30" rows="10" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary btn">Save</button>
+                <button type="button" class="btn btn-danger" onclick="closeSection('note-modal')">Cancel</button>
+            </form>
+        </div>
+    </div>
+    {% block body %}
+        
+    {% endblock body %}
+    <script src="{% static 'index.js' %}"></script>
+</body>
+</html>
+        

@@ -1,0 +1,59 @@
+header{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display:flex;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 2px 2px 0 lightgray;
+    justify-content: space-between;
+    z-index: 100;
+}
+.add-btn{
+    margin:15px 0px;
+}
+.container{
+    margin-top:20px ;
+}
+.note-modal{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.356);
+    display: none;
+    z-index: 200;
+}
+.form{
+    width: 50%;
+    margin:50px auto;
+    background-color: white;
+    padding: 20px;
+}
+.update-form{
+    width: 50%;
+    margin:100px auto;
+    background-color: white;
+    padding: 20px;
+}
+.notes{
+    position: relative;
+    top: 100px;
+}
+
+.note{
+    padding: 20px;
+    border: 1px solid lightgray;
+}
+
+.notes > .note+.note{
+    margin-top: 10px;
+}
+
+@media(max-width:600px){
+    .form{
+        width: 80%;
+        height: 80%;
+    }
+}
